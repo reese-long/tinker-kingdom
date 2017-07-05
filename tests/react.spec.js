@@ -242,19 +242,19 @@ describe('React', () => {
     // passes props
     //
 
-    xit('passes its own `pets` prop down to <AnimalSelect /> as `pets`', () => {
+    xit('passes its own `pets` prop down to <AdoptionForm /> as `pets`', () => {
 
       expect(petPreview.find(AdoptionForm).props().pets).to.be.deep.equal(petPreview.instance().props.pets);
 
     });
 
-    xit('passes the `previewPet` method down to <AnimalSelect /> as a prop called `previewPet`', () => {
+    xit('passes the `previewPet` method down to <AdoptionForm /> as a prop called `previewPet`', () => {
 
       expect(petPreview.find(AdoptionForm).props().previewPet).to.be.deep.equal(petPreview.instance().previewPet);
 
     });
 
-    xit('passes the `adoptSelectedPet` method down to <AnimalSelect /> as a prop called `adoptSelectedPet`', () => {
+    xit('passes the `adoptSelectedPet` method down to <AdoptionForm /> as a prop called `adoptSelectedPet`', () => {
 
       expect(petPreview.find(AdoptionForm).props().adoptSelectedPet).to.be.deep.equal(petPreview.instance().adoptSelectedPet);
 
