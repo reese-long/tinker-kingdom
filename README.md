@@ -32,8 +32,8 @@ For the react specs, you will work in the following files:
 - AdoptionForm.js
 
 For the redux specs, you will work in the following files:
-- actions.js
-- main.js
+- action-creators.js
+- reducer.js
 
 You should not need to modify any other files.
 It is also not necessary to `import` or `export` anything other than what is already available.
