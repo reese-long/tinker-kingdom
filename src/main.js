@@ -7,8 +7,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AdoptionAgency from './components/AdoptionAgency';
 
-import '../scss/main.scss';
-
 ReactDOM.render(
   <AdoptionAgency />,
   document.getElementById('app')

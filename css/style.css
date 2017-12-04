@@ -2,12 +2,10 @@
   box-sizing: border-box;
 }
 
-.clearfix {
-  &:after {
-    content: '';
-    display: table;
-    clear:both;
-  }
+.clearfix &:after {
+  content: '';
+  display: table;
+  clear:both;
 }
 
 body {
@@ -30,15 +28,6 @@ h1, h2 {
   margin: 1.5vw;
 }
 
-.cage {
-  width: 225px;
-  padding: 0 10px;
-  float: left;
-  height: 225px;
-  background-repeat: no-repeat;
-  background-size: 225px;
-}
-
 #save-button {
   background: transparent;
   display: block;
@@ -49,6 +38,3 @@ h1, h2 {
   margin-top: 20px;
   clear: both;
 }
-
-
-
