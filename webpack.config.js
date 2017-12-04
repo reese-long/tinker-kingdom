@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  devtool: 'sourcemaps',
+  devtool: 'source-map',
   entry: './src/main.js',
   output: {
     path: __dirname,
@@ -9,15 +9,11 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js?$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, 'src')
-      },
-      {
-        test: /\.scss?$/,
-        loaders: ['style', 'css', 'sass']
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader'
       }
     ]
   }
