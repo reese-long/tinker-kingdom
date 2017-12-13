@@ -23,7 +23,7 @@ describe('React', () => {
   const CATS = [
     { name: 'Earl',    imgUrl: 'src/img/earl.png'   },
     { name: 'Winnie',  imgUrl: 'src/img/winnie.png' },
-    { name: 'Fellini',  imgUrl: 'src/img/fellini.png' }
+    { name: 'Fellini', imgUrl: 'src/img/fellini.png' }
   ];
 
 
@@ -99,7 +99,7 @@ describe('React', () => {
 
     xit('renders two <PetPreview /> components (one for dogs and one for cats)', () => {
 
-      expect(adoptionAgency.find(PetPreview).length).to.be.equal(2);
+      expect(adoptionAgency.find(PetPreview)).to.have.lengthOf(2);
 
     });
 
@@ -226,7 +226,7 @@ describe('React', () => {
 
     xit('renders an <AdoptionForm /> component', () => {
 
-      expect(petPreview.find(AdoptionForm).length).to.be.equal(1);
+      expect(petPreview.find(AdoptionForm)).to.have.lengthOf(1);
 
     });
 
@@ -286,33 +286,31 @@ describe('React', () => {
 
     xit('renders a <button> element', () => {
 
-      expect(adoptionForm.find('button').length).to.be.equal(1);
+      expect(adoptionForm.find('button')).to.have.lengthOf(1);
 
     });
 
     xit('renders a <select> element', () => {
 
-      expect(adoptionForm.find('select').length).to.be.equal(1);
+      expect(adoptionForm.find('select')).to.have.lengthOf(1);
 
     });
 
     xit('renders an <option> within the <select> for each pet', () => {
 
-      expect(adoptionForm.find('select').find('option').length).to.be.equal(adoptionForm.instance().props.pets.length);
+      expect(adoptionForm.find('select').find('option')).to.have.lengthOf(CATS.length);
     });
 
     xit('renders each <option> with a `key` prop and an inner text value equal to that pet\'s name', () => {
-
-      expect(adoptionForm.find('select').find('option').length).to.be.equal(adoptionForm.instance().props.pets.length);
 
       // Loops through each option in the select
       adoptionForm.find('option').forEach((option, idx) => {
 
         // determines if the option's 'key' prop is equivalent to the pet's name
-        expect(option.key()).to.be.equal(adoptionForm.instance().props.pets[idx].name);
+        expect(option.key()).to.be.equal(CATS[idx].name);
 
         // determines if the option's inner text is equivalent to the pet's name
-        expect(option.text().trim()).to.be.equal(adoptionForm.instance().props.pets[idx].name);
+        expect(option.text().trim()).to.be.equal(CATS[idx].name);
 
       });
 
@@ -320,13 +318,13 @@ describe('React', () => {
 
     xit('works for both dogs and cats', () => {
 
-      expect(adoptionForm.find('select').find('option').length).to.be.equal(adoptionForm.instance().props.pets.length);
+      expect(adoptionForm.find('select').find('option')).to.have.lengthOf(CATS.length);
 
       const dogAdoptionForm = shallow(<AdoptionForm pets={DOGS} />);
 
       dogAdoptionForm.find('option').forEach((option, idx) => {
-        expect(option.key()).to.be.equal(dogAdoptionForm.instance().props.pets[idx].name);
-        expect(option.text().trim()).to.be.equal(dogAdoptionForm.instance().props.pets[idx].name);
+        expect(option.key()).to.be.equal(DOGS[idx].name);
+        expect(option.text().trim()).to.be.equal(DOGS[idx].name);
       });
 
     });
