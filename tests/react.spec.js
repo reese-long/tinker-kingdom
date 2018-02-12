@@ -50,14 +50,14 @@ describe('React', () => {
     // has state
     //
 
-    xit('has a `petToAdopt` field on its state', () => {
+    it('has a `petToAdopt` field on its state', () => {
 
       // ShallowWrapper.state() gives us the current `this.state` of the component
       expect(adoptionAgency.state().petToAdopt).to.exist;
 
     });
 
-    xit('has a `petToAdopt` field initialized to be an empty object', () => {
+    it('has a `petToAdopt` field initialized to be an empty object', () => {
 
       expect(adoptionAgency.state().petToAdopt).to.be.an('object');
 
@@ -67,7 +67,7 @@ describe('React', () => {
     // has methods
     //
 
-    xit('has a method called `adoptPet`, which takes a pet and sets it as the `petToAdopt` on state', () => {
+    it('has a method called `adoptPet`, which takes a pet and sets it as the `petToAdopt` on state', () => {
 
       const pet = { name: 'Cody', imgUrl: 'cody.png' };
 
@@ -78,7 +78,7 @@ describe('React', () => {
 
     });
 
-    xit('binds the `adoptPet` method to the context of the component', () => {
+    it('binds the `adoptPet` method to the context of the component', () => {
 
       expect(adoptionAgency.instance().adoptPet.hasOwnProperty('prototype')).to.be.false;
 
@@ -88,7 +88,7 @@ describe('React', () => {
     // renders components
     //
 
-    xit('renders the name of the petToAdopt in an h3 tag', () => {
+    it('renders the name of the petToAdopt in an h3 tag', () => {
 
       const pet = { name: 'Cody', imgUrl: 'cody.png' };
       adoptionAgency.setState({ petToAdopt: pet });
@@ -97,7 +97,7 @@ describe('React', () => {
 
     });
 
-    xit('renders two <PetPreview /> components (one for dogs and one for cats)', () => {
+    it('renders two <PetPreview /> components (one for dogs and one for cats)', () => {
 
       expect(adoptionAgency.find(PetPreview)).to.have.lengthOf(2);
 
@@ -107,19 +107,19 @@ describe('React', () => {
     // passes props
     //
 
-    xit('passes a prop called `pets` with the list of dogs to one of the <PetPreview /> components', () => {
+    it('passes a prop called `pets` with the list of dogs to one of the <PetPreview /> components', () => {
 
       expect(adoptionAgency.find('#dogs').find(PetPreview).props().pets).to.be.deep.equal(DOGS);
 
     });
 
-    xit('passes a prop called `pets` with the list of cats the other <PetPreview /> component', () => {
+    it('passes a prop called `pets` with the list of cats the other <PetPreview /> component', () => {
 
       expect(adoptionAgency.find('#cats').find(PetPreview).props().pets).to.be.deep.equal(CATS);
 
     });
 
-    xit('passes the `adoptPet` method to each <PetPreview/> component as a prop called `adoptPet`', () => {
+    it('passes the `adoptPet` method to each <PetPreview/> component as a prop called `adoptPet`', () => {
 
       expect(adoptionAgency.find('#dogs').find(PetPreview).props().adoptPet)
         .to
@@ -158,13 +158,13 @@ describe('React', () => {
     // has state
     //
 
-    xit('has a `petToPreview` field on its state', () => {
+    it('has a `petToPreview` field on its state', () => {
 
       expect(petPreview.state().petToPreview).to.exist;
 
     });
 
-    xit('has a `petToPreview` field initialized to be an empty object', () => {
+    it('has a `petToPreview` field initialized to be an empty object', () => {
 
       expect(petPreview.state().petToPreview).to.be.an('object');
 
@@ -174,7 +174,7 @@ describe('React', () => {
     // has methods
     //
 
-    xit('has a method called `previewPet`, which takes an event (whose target.value is a pet name), and sets the pet with the matching name on state', () => {
+    it('has a method called `previewPet`, which takes an event (whose target.value is a pet name), and sets the pet with the matching name on state', () => {
 
       // This one will require a little creativity.
       // The event we receive contains the pet name on it, but we want to set a full pet object on state.
@@ -193,7 +193,7 @@ describe('React', () => {
 
     });
 
-    xit('has a method called `adoptSelectedPet`, which invokes the `adoptPet` prop and passes it the pet to preview from state', () => {
+    it('has a method called `adoptSelectedPet`, which invokes the `adoptPet` prop and passes it the pet to preview from state', () => {
 
       expect(petPreview.instance().adoptSelectedPet).to.be.function;
 
@@ -208,13 +208,13 @@ describe('React', () => {
 
     });
 
-    xit('binds the `previewPet` method to the context of the component', () => {
+    it('binds the `previewPet` method to the context of the component', () => {
 
       expect(petPreview.instance().previewPet.hasOwnProperty('prototype')).to.be.false;
 
     });
 
-    xit('binds the `adoptSelectedPet` method to the context of the component', () => {
+    it('binds the `adoptSelectedPet` method to the context of the component', () => {
 
       expect(petPreview.instance().adoptSelectedPet.hasOwnProperty('prototype')).to.be.false;
 
@@ -224,13 +224,13 @@ describe('React', () => {
     // renders components
     //
 
-    xit('renders an <AdoptionForm /> component', () => {
+    it('renders an <AdoptionForm /> component', () => {
 
       expect(petPreview.find(AdoptionForm)).to.have.lengthOf(1);
 
     });
 
-    xit('renders an <img> element with a `src` prop equal to the pet-to-preview\'s imgUrl', () => {
+    it('renders an <img> element with a `src` prop equal to the pet-to-preview\'s imgUrl', () => {
 
       const taylor = DOGS[0];
       petPreview.setState({ petToPreview: taylor });
@@ -246,19 +246,19 @@ describe('React', () => {
     // passes props
     //
 
-    xit('passes its own `pets` prop down to <AdoptionForm /> as `pets`', () => {
+    it('passes its own `pets` prop down to <AdoptionForm /> as `pets`', () => {
 
       expect(petPreview.find(AdoptionForm).props().pets).to.be.deep.equal(petPreview.instance().props.pets);
 
     });
 
-    xit('passes the `previewPet` method down to <AdoptionForm /> as a prop called `previewPet`', () => {
+    it('passes the `previewPet` method down to <AdoptionForm /> as a prop called `previewPet`', () => {
 
       expect(petPreview.find(AdoptionForm).props().previewPet).to.be.deep.equal(petPreview.instance().previewPet);
 
     });
 
-    xit('passes the `adoptSelectedPet` method down to <AdoptionForm /> as a prop called `adoptSelectedPet`', () => {
+    it('passes the `adoptSelectedPet` method down to <AdoptionForm /> as a prop called `adoptSelectedPet`', () => {
 
       expect(petPreview.find(AdoptionForm).props().adoptSelectedPet).to.be.deep.equal(petPreview.instance().adoptSelectedPet);
 
@@ -284,24 +284,24 @@ describe('React', () => {
     // renders components
     //
 
-    xit('renders a <button> element', () => {
+    it('renders a <button> element', () => {
 
       expect(adoptionForm.find('button')).to.have.lengthOf(1);
 
     });
 
-    xit('renders a <select> element', () => {
+    it('renders a <select> element', () => {
 
       expect(adoptionForm.find('select')).to.have.lengthOf(1);
 
     });
 
-    xit('renders an <option> within the <select> for each pet', () => {
+    it('renders an <option> within the <select> for each pet', () => {
 
       expect(adoptionForm.find('select').find('option')).to.have.lengthOf(CATS.length);
     });
 
-    xit('renders each <option> with a `key` prop and an inner text value equal to that pet\'s name', () => {
+    it('renders each <option> with a `key` prop and an inner text value equal to that pet\'s name', () => {
 
       // Loops through each option in the select
       adoptionForm.find('option').forEach((option, idx) => {
@@ -316,7 +316,7 @@ describe('React', () => {
 
     });
 
-    xit('works for both dogs and cats', () => {
+    it('works for both dogs and cats', () => {
 
       expect(adoptionForm.find('select').find('option')).to.have.lengthOf(CATS.length);
 
@@ -333,7 +333,7 @@ describe('React', () => {
     // attaches listeners
     //
 
-    xit('attaches the `previewPet` prop as an `onChange` listener for the <select> component', () => {
+    it('attaches the `previewPet` prop as an `onChange` listener for the <select> component', () => {
 
       expect(adoptionForm.find('select').onChange).to.be.function;
 
@@ -350,7 +350,7 @@ describe('React', () => {
 
     });
 
-    xit('attaches the `adoptSelectedPet` prop as an `onClick` listener for the button', () => {
+    it('attaches the `adoptSelectedPet` prop as an `onClick` listener for the button', () => {
 
       expect(adoptionForm.find('button').onClick).to.be.function;
 

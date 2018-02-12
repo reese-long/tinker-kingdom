@@ -3,47 +3,47 @@ import PetPreview from './PetPreview';
 
 export default class AdoptionAgency extends Component {
 
-  constructor () {
+  constructor(props) {
 
-    super();
+    super(props);
 
     this.state = {
       dogs: [
-        { name: 'Taylor',  imgUrl: 'src/img/taylor.png'  },
-        { name: 'Reggie',  imgUrl: 'src/img/reggie.png'  },
+        { name: 'Taylor', imgUrl: 'src/img/taylor.png' },
+        { name: 'Reggie', imgUrl: 'src/img/reggie.png' },
         { name: 'Pandora', imgUrl: 'src/img/pandora.png' }
       ],
       cats: [
-        { name: 'Earl',    imgUrl: 'src/img/earl.png'   },
-        { name: 'Winnie',  imgUrl: 'src/img/winnie.png' },
-        { name: 'Fellini',  imgUrl: 'src/img/fellini.png' }
+        { name: 'Earl', imgUrl: 'src/img/earl.png' },
+        { name: 'Winnie', imgUrl: 'src/img/winnie.png' },
+        { name: 'Fellini', imgUrl: 'src/img/fellini.png' }
       ],
-      // There's one more field that should be on this.state
-      // You get to add that yourself!
+      petToAdopt: {}
     };
-
+    this.adoptPet = this.adoptPet.bind(this)
   }
 
-  render () {
+  adoptPet(pet) {
+    this.setState({ petToAdopt: pet })
+  }
+
+  render() {
 
     return (
       <div>
         <h1>Adoptr</h1>
-
         <div className="clearfix">
-          <h3>You are adopting: </h3>
+          <h3>You are adopting: {this.state.petToAdopt.name}</h3>
         </div>
-
         <div className="clearfix">
-
           <div className="block" id="dogs">
             <h2>Dogs</h2>
+            <PetPreview pets={this.state.dogs} adoptPet={this.adoptPet} />
           </div>
-
           <div className="block" id="cats">
             <h2>Cats</h2>
+            <PetPreview pets={this.state.cats} adoptPet={this.adoptPet} />)}
           </div>
-
         </div>
       </div>
     );

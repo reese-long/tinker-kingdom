@@ -25,7 +25,7 @@ describe('Action creators', () => {
 
   describe('previewPet', () => {
 
-    xit('returns properly formatted action', () => {
+    it('returns properly formatted action', () => {
 
       const pet = getRandomPet(DOGS);
 
@@ -40,7 +40,7 @@ describe('Action creators', () => {
 
   describe('adoptPet', () => {
 
-    xit('returns properly formatted action', () => {
+    it('returns properly formatted action', () => {
 
       const pet = getRandomPet(DOGS);
 
@@ -55,7 +55,7 @@ describe('Action creators', () => {
 
   describe('addNewDog', () => {
 
-    xit('returns properly formatted action', () => {
+    it('returns properly formatted action', () => {
 
       const pet = getRandomPet(DOGS);
 
@@ -70,7 +70,7 @@ describe('Action creators', () => {
 
   describe('addNewCat', () => {
 
-    xit('returns properly formatted action', () => {
+    it('returns properly formatted action', () => {
 
       const pet = getRandomPet(CATS);
 
@@ -96,7 +96,7 @@ describe('Reducer', () => {
 
   });
 
-  xit('returns the initial state by default', () => {
+  it('returns the initial state by default', () => {
 
     // In addition to dogs and cats, we need two more fields
     expect(store.getState().petToPreview).to.be.an('object');
@@ -105,7 +105,7 @@ describe('Reducer', () => {
 
   describe('reduces on PREVIEW_PET action', () => {
 
-    xit('sets the action\'s pet as the petToPreview on state (without mutating the previous state)', () => {
+    it('sets the action\'s pet as the petToPreview on state (without mutating the previous state)', () => {
 
       const prevState = store.getState();
 
@@ -126,7 +126,7 @@ describe('Reducer', () => {
 
   describe('reduces on ADOPT_PET action', () => {
 
-    xit('sets the action\'s pet as the petToAdopt on state (without mutating the previous state)', () => {
+    it('sets the action\'s pet as the petToAdopt on state (without mutating the previous state)', () => {
 
       const prevState = store.getState();
 
@@ -145,7 +145,7 @@ describe('Reducer', () => {
 
   describe('reduces on ADD_NEW_DOG action', () => {
 
-    xit('adds the new dog to the dogs array (without mutating the previous state)', () => {
+    it('adds the new dog to the dogs array (without mutating the previous state)', () => {
 
       const prevState = store.getState();
 
@@ -165,7 +165,7 @@ describe('Reducer', () => {
 
   describe('reduces on ADD_NEW_CAT action', () => {
 
-    xit('adds the new cat to the cats array (without mutating the previous state)', () => {
+    it('adds the new cat to the cats array (without mutating the previous state)', () => {
 
       const prevState = store.getState();
 
@@ -185,7 +185,7 @@ describe('Reducer', () => {
 
   describe('handles unrecognized actions', () => {
 
-    xit('returns the previous state', () => {
+    it('returns the previous state', () => {
 
       const prevState = store.getState();
 
