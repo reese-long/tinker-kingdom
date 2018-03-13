@@ -2,6 +2,7 @@
   "name": "ezoosdotbiz",
   "version": "1.0.0",
   "scripts": {
+    "start":"npm run build",
     "build": "webpack-dev-server",
     "test": "mocha ./tests/*.spec.js --watch --compilers js:babel-register"
   },
@@ -20,6 +21,8 @@
     "webpack": "^3.9.1",
     "webpack-dev-server": "^2.9.5"
   },
+  "webpack": "^3.9.1",
+  "webpack-dev-server": "^2.9.5",
   "dependencies": {
     "css-loader": "^0.28.9",
     "node-sass": "^4.7.2",
