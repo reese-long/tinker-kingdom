@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   devtool: 'source-map',
-  entry: './src/main.js',
+  entry: './src/client/index.js',
   output: {
     path: __dirname,
     publicPath: '/',
@@ -14,6 +14,14 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   }
