@@ -2,7 +2,7 @@
   "name": "ezoosdotbiz",
   "version": "1.0.0",
   "scripts": {
-    "start":"npm run build",
+    "start": "node server",
     "build": "webpack-dev-server",
     "test": "mocha ./tests/*.spec.js --watch --compilers js:babel-register"
   },
@@ -25,7 +25,10 @@
   "webpack-dev-server": "^2.9.5",
   "dependencies": {
     "css-loader": "^0.28.9",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
     "node-sass": "^4.7.2",
+    "path": "^0.12.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-grid-gallery": "^0.4.8",
